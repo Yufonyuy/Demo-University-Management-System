@@ -1,0 +1,48 @@
+# ==========================================
+# Root & React Frontend (Vite)
+# ==========================================
+node_modules/
+/dist/
+/build/
+.eslintcache
+*.log
+
+# ==========================================
+# Django Backend (Nested in backend/)
+# ==========================================
+backend/**/__pycache__/
+backend/**/*.py[cod]
+backend/**/$py.class
+backend/**/*.log
+
+# Local databases
+backend/db.sqlite3
+backend/db.sqlite3-journal
+
+# Python Virtual Environments
+backend/venv/
+backend/.venv/
+backend/env/
+backend/ENV/
+
+# Django Media and Static folders
+backend/media/
+backend/staticfiles/
+
+# ==========================================
+# Security & Environments
+# ==========================================
+.env
+.env.local
+.env.*.local
+backend/**/secrets.py
+backend/**/local_settings.py
+
+# ==========================================
+# IDE & System Files
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
