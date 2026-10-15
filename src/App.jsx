@@ -64,7 +64,7 @@ function initDB() {
 
   d = {
     settings: {
-      schoolName: 'Scholar University',
+      schoolName: 'Genesys',
       motto: 'Excellence in Education',
       academicYear: `${CURRENT_YEAR}/${CURRENT_YEAR + 1}`,
       currentSemester: 'First Semester',
@@ -231,7 +231,7 @@ function StatCard({ title, value, color = 'teal', icon = '' }) {
       <div className="flex justify-between items-start">
         <div>
           <p className="text-sm opacity-80 font-medium">{title}</p>
-          <p className="text-3xl font-bold mt-1">{value}</p>
+          <p className="text-2xl sm:text-3xl font-bold mt-1 break-words">{value}</p>
         </div>
         {icon && <span className="text-3xl opacity-50">{icon}</span>}
       </div>
@@ -605,7 +605,7 @@ function SignupPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gray-50">
-      <Card className="w-full max-w-lg p-8">
+      <Card className="w-full max-w-lg p-6 sm:p-8">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-teal-800 rounded-2xl flex items-center justify-center mx-auto mb-4"><span className="text-amber-400 text-2xl font-black">+</span></div>
           <h2 className="text-2xl font-bold text-gray-900">Student Registration</h2>
@@ -620,11 +620,11 @@ function SignupPage() {
             </Alert>
           )}
           <Input label="Full Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Roll / Matricule" value={form.roll} onChange={e => setForm({ ...form, roll: e.target.value })} required />
             <Input label="Phone" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Department" value={form.dept} onChange={e => setForm({ ...form, dept: e.target.value })} required />
             <Input label="Level" value={form.level} onChange={e => setForm({ ...form, level: e.target.value })} required />
           </div>
@@ -807,6 +807,7 @@ function AdminAdmissions() {
         </div>
       </Card>
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Matricule</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Faculty / Dept</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Status</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr></thead>
           <tbody className="divide-y divide-gray-100">
@@ -824,6 +825,7 @@ function AdminAdmissions() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -862,11 +864,11 @@ function AdminTeachers() {
           <form onSubmit={submit} className="space-y-4">
             <Input label="Full Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
             <Input label="Email" type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Department" options={DEPTS} value={form.dept} onChange={e => setForm({ ...form, dept: e.target.value })} required />
               <Input label="Level" options={LEVELS} value={form.level} onChange={e => setForm({ ...form, level: e.target.value })} required />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Gender" options={GENDERS} value={form.gender} onChange={e => setForm({ ...form, gender: e.target.value })} required />
               <Input label="Phone" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
             </div>
@@ -876,6 +878,7 @@ function AdminTeachers() {
         </Card>
       )}
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50">
             <tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Email</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Department</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Level</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr>
@@ -892,6 +895,7 @@ function AdminTeachers() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -929,6 +933,7 @@ function AdminStudents() {
         </div>
       </Card>
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50">
             <tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Roll No</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Dept</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Level</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr>
@@ -945,6 +950,7 @@ function AdminStudents() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -979,12 +985,12 @@ function AdminCourses() {
           <form onSubmit={submit} className="space-y-4">
             <Input label="Course Code" value={form.code} onChange={e => setForm({ ...form, code: e.target.value })} placeholder="e.g. CS301" required />
             <Input label="Course Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Input type="number" label="Credits" value={form.credits} onChange={e => setForm({ ...form, credits: e.target.value })} required />
               <Input label="Semester" options={TERMS} value={form.semester} onChange={e => setForm({ ...form, semester: e.target.value })} required />
               <Input label="Resit Course" options={['No', 'Yes']} value={form.resit ? 'Yes' : 'No'} onChange={e => setForm({ ...form, resit: e.target.value === 'Yes' })} />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Department" options={DEPTS} value={form.dept} onChange={e => setForm({ ...form, dept: e.target.value })} required />
               <Input label="Level" options={LEVELS} value={form.level} onChange={e => setForm({ ...form, level: e.target.value })} required />
             </div>
@@ -994,6 +1000,7 @@ function AdminCourses() {
         </Card>
       )}
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50">
             <tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Code</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Credits</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Dept/Level</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Teacher</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Semester</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr>
@@ -1015,6 +1022,7 @@ function AdminCourses() {
             })}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1046,7 +1054,7 @@ function AdminSemesters() {
           <form onSubmit={submit} className="space-y-4">
             <Input label="Semester Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="First Semester" required />
             <Input label="Academic Year" value={form.year} onChange={e => setForm({ ...form, year: e.target.value })} placeholder="2025/2026" required />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input type="date" label="Start Date" value={form.startDate} onChange={e => setForm({ ...form, startDate: e.target.value })} required />
               <Input type="date" label="End Date" value={form.endDate} onChange={e => setForm({ ...form, endDate: e.target.value })} required />
             </div>
@@ -1059,6 +1067,7 @@ function AdminSemesters() {
         </Card>
       )}
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50">
             <tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Year</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Period</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Status</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr>
@@ -1078,6 +1087,7 @@ function AdminSemesters() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1273,7 +1283,7 @@ function AdminTimetable() {
           <form onSubmit={submit} className="space-y-3">
             <Input options={[{ value: '', label: 'Select Course...' }, ...courses.map(c => ({ value: c.id, label: `${c.code} - ${c.name}` }))]} value={form.courseId} onChange={e => setForm({ ...form, courseId: e.target.value })} required />
             <Input options={days} value={form.day} onChange={e => setForm({ ...form, day: e.target.value })} required />
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Input type="time" value={form.startTime} onChange={e => setForm({ ...form, startTime: e.target.value })} required />
               <Input type="time" value={form.endTime} onChange={e => setForm({ ...form, endTime: e.target.value })} required />
             </div>
@@ -1348,6 +1358,7 @@ function AdminFees() {
           </form>
         </Card>
         <Card className="lg:col-span-2 overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50">
               <tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Student</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Semester</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Amount</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Paid</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Balance</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Status</th></tr>
@@ -1368,6 +1379,7 @@ function AdminFees() {
               })}
             </tbody>
           </table>
+          </div>
         </Card>
       </div>
     </div>
@@ -1396,6 +1408,7 @@ function AdminReports() {
     <div>
       <SectionTitle title="Institution Reports" subtitle="Comprehensive student performance overview" />
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50">
             <tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Roll</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Dept</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">GPA</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Att%</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Failed</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Fee</th></tr>
@@ -1414,6 +1427,7 @@ function AdminReports() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1490,6 +1504,7 @@ function TeacherStudents() {
     <div>
       <SectionTitle title="My Students" subtitle={`Students in ${user.dept} department`} />
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Roll No</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Level</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Email</th></tr></thead>
           <tbody className="divide-y divide-gray-100">
@@ -1498,6 +1513,7 @@ function TeacherStudents() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1523,6 +1539,7 @@ function TeacherAttendance() {
         <Input type="date" value={date} onChange={e => setDate(e.target.value)} />
       </div>
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Roll No</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Status</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr></thead>
           <tbody className="divide-y divide-gray-100">
@@ -1543,6 +1560,7 @@ function TeacherAttendance() {
             })}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1578,6 +1596,7 @@ function TeacherMarks() {
       {msg && <Alert type="success" onClose={() => setMsg('')}>{msg}</Alert>}
       {selCourse && students.length > 0 && (
         <Card className="overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Student</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Roll No</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Score</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Grade</th></tr></thead>
             <tbody className="divide-y divide-gray-100">
@@ -1591,6 +1610,7 @@ function TeacherMarks() {
               ))}
             </tbody>
           </table>
+          </div>
           <div className="p-4 border-t border-gray-100 bg-gray-50 flex justify-end">
             <Button variant="primary" onClick={saveMarks}>Save Marks</Button>
           </div>
@@ -1749,6 +1769,7 @@ function StudentCourses() {
       )}
       {tab === 'registered' && (
         <Card className="overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Code</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Credits</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Lecturer</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Actions</th></tr></thead>
             <tbody className="divide-y divide-gray-100">
@@ -1766,6 +1787,7 @@ function StudentCourses() {
               })}
             </tbody>
           </table>
+          </div>
         </Card>
       )}
     </div>
@@ -1817,6 +1839,7 @@ function StudentMarks() {
       } />
       {msg && <Alert type={msg.includes('deadline') ? 'error' : 'success'} onClose={() => setMsg('')}>{msg}</Alert>}
       <Card className="overflow-hidden mb-6">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Code</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Course Name</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Credits</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Score</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Grade</th></tr></thead>
           <tbody className="divide-y divide-gray-100">
@@ -1831,6 +1854,7 @@ function StudentMarks() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
       {resitCourses.length > 0 && (
         <div>
@@ -1871,6 +1895,7 @@ function StudentAttendance() {
         <StatCard title="Late" value={att.filter(a => a.status === 'Late').length} color="amber" />
       </div>
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Date</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Status</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Time</th></tr></thead>
           <tbody className="divide-y divide-gray-100">
@@ -1883,6 +1908,7 @@ function StudentAttendance() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1897,6 +1923,7 @@ function StudentFees() {
       <SectionTitle title="My Fees" subtitle="Payment records and balance" />
       {isDeadlinePassed(settings.feeDeadline) && <Alert type="error">Fee payment deadline has passed ({formatDate(settings.feeDeadline)}). Contact admin for payment arrangements.</Alert>}
       <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50"><tr><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Semester</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Amount</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Paid</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Balance</th><th className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase">Status</th></tr></thead>
           <tbody className="divide-y divide-gray-100">
@@ -1911,6 +1938,7 @@ function StudentFees() {
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
     </div>
   )
@@ -1998,11 +2026,11 @@ function StudentProfile() {
             <Input label="Full Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
             <Input label="Email" type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
             <Input label="Phone" value={form.phone || ''} onChange={e => setForm({ ...form, phone: e.target.value })} />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Roll Number" value={form.roll} onChange={e => setForm({ ...form, roll: e.target.value })} required />
               <Input label="Gender" options={GENDERS} value={form.gender} onChange={e => setForm({ ...form, gender: e.target.value })} required />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Department" options={DEPTS} value={form.dept} onChange={e => setForm({ ...form, dept: e.target.value })} required />
               <Input label="Level" options={LEVELS} value={form.level} onChange={e => setForm({ ...form, level: e.target.value })} required />
             </div>
@@ -2050,10 +2078,47 @@ function StudentProfile() {
 }
 
 /* ==================== LAYOUTS ==================== */
+function SidebarLayout({ badge, title, subtitle, menu, base, content }) {
+  const nav = useNavigate()
+  const [open, setOpen] = useState(false)
+  const path = window.location.hash.split('/').pop() || 'dashboard'
+  function go(id) { setOpen(false); nav(base + '/' + id) }
+  return (
+    <div className="min-h-screen flex bg-gray-50">
+      {open && <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setOpen(false)} />}
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-teal-900 text-white flex flex-col transform transition-transform duration-200 ease-out md:static md:translate-x-0 md:z-auto ${open ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-5 border-b border-teal-800 flex items-center gap-3">
+          <div className="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center shrink-0"><span className="text-teal-950 font-black text-lg">{badge}</span></div>
+          <div className="min-w-0"><h2 className="text-xs font-extrabold text-amber-300 truncate">{title}</h2><p className="text-xs text-teal-400 truncate">{subtitle}</p></div>
+        </div>
+        <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+          {menu.map(([id, i, l]) => (
+            <button key={id} onClick={() => go(id)} className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-sm font-medium transition ${path === id ? 'bg-amber-400 text-teal-900 font-bold' : 'text-teal-200 hover:bg-teal-800/50'}`}>
+              <span className="w-6 h-6 flex items-center justify-center rounded bg-teal-800/60 text-xs font-bold shrink-0">{i}</span>{l}
+            </button>
+          ))}
+        </nav>
+        <div className="p-3 border-t border-teal-800">
+          <button onClick={() => { logout(); nav('/login') }} className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-red-300 hover:bg-red-500/10 text-sm font-medium">
+            <span className="w-6 h-6 flex items-center justify-center rounded bg-red-500/20 text-xs font-bold">X</span>Logout
+          </button>
+        </div>
+      </aside>
+      <div className="flex-1 flex flex-col min-w-0">
+        <header className="md:hidden sticky top-0 z-30 bg-teal-900 text-white flex items-center gap-3 px-4 py-3 shadow-md">
+          <button onClick={() => setOpen(true)} aria-label="Open menu" className="w-9 h-9 flex items-center justify-center rounded-lg bg-teal-800 hover:bg-teal-700 text-lg font-bold">☰</button>
+          <div className="min-w-0"><h2 className="text-sm font-extrabold text-amber-300 truncate">{title}</h2><p className="text-xs text-teal-400 truncate">{subtitle}</p></div>
+        </header>
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">{content()}</main>
+      </div>
+    </div>
+  )
+}
+
 function AdminLayout() {
-  const nav = useNavigate(); const path = window.location.hash.split('/').pop() || 'dashboard'
   const menu = [['dashboard', 'D', 'Dashboard'], ['teachers', 'T', 'Teachers'], ['admissions', 'AD', 'Admissions'], ['students', 'S', 'Students'], ['courses', 'C', 'Courses'], ['semesters', 'SE', 'Semesters'], ['deadlines', 'DL', 'Deadlines'], ['announcements', 'A', 'Announcements'], ['messages', 'M', 'Messages'], ['timetable', 'TT', 'Timetable'], ['fees', 'F', 'Fees'], ['reports', 'R', 'Reports'], ['settings', 'SE', 'Settings']]
   function content() {
+    const path = window.location.hash.split('/').pop() || 'dashboard'
     if (path === 'teachers') return <AdminTeachers />
     if (path === 'admissions') return <AdminAdmissions />
     if (path === 'students') return <AdminStudents />
@@ -2068,70 +2133,26 @@ function AdminLayout() {
     if (path === 'settings') return <AdminSettings />
     return <AdminDashboard />
   }
-  return (
-    <div className="min-h-screen flex bg-gray-50">
-      <aside className="w-64 bg-teal-900 text-white flex flex-col shrink-0">
-        <div className="p-5 border-b border-teal-800 flex items-center gap-3">
-          <div className="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center"><span className="text-teal-950 font-black text-lg">SA</span></div>
-          <div><h2 className="text-xs font-extrabold text-amber-300">SUPER ADMIN</h2><p className="text-xs text-teal-400">{initDB().settings.schoolName}</p></div>
-        </div>
-        <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-          {menu.map(([id, i, l]) => (
-            <button key={id} onClick={() => nav('/admin/' + id)} className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-sm font-medium transition ${path === id ? 'bg-amber-400 text-teal-900 font-bold' : 'text-teal-200 hover:bg-teal-800/50'}`}>
-              <span className="w-6 h-6 flex items-center justify-center rounded bg-teal-800/60 text-xs font-bold">{i}</span>{l}
-            </button>
-          ))}
-        </nav>
-        <div className="p-3 border-t border-teal-800">
-          <button onClick={() => { logout(); nav('/login') }} className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-red-300 hover:bg-red-500/10 text-sm font-medium">
-            <span className="w-6 h-6 flex items-center justify-center rounded bg-red-500/20 text-xs font-bold">X</span>Logout
-          </button>
-        </div>
-      </aside>
-      <main className="flex-1 p-6 lg:p-8 overflow-auto">{content()}</main>
-    </div>
-  )
+  return <SidebarLayout badge="SA" title="SUPER ADMIN" subtitle={initDB().settings.schoolName} menu={menu} base="/admin" content={content} />
 }
 
 function TeacherLayout() {
-  const nav = useNavigate(); const path = window.location.hash.split('/').pop() || 'dashboard'
   const menu = [['dashboard', 'D', 'Dashboard'], ['students', 'S', 'My Students'], ['attendance', 'A', 'Attendance'], ['marks', 'M', 'Marks'], ['timetable', 'T', 'Timetable']]
   function content() {
+    const path = window.location.hash.split('/').pop() || 'dashboard'
     if (path === 'students') return <TeacherStudents />
     if (path === 'attendance') return <TeacherAttendance />
     if (path === 'marks') return <TeacherMarks />
     if (path === 'timetable') return <TeacherTimetable />
     return <TeacherDashboard />
   }
-  return (
-    <div className="min-h-screen flex bg-gray-50">
-      <aside className="w-64 bg-teal-900 text-white flex flex-col shrink-0">
-        <div className="p-5 border-b border-teal-800 flex items-center gap-3">
-          <div className="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center"><span className="text-teal-950 font-black text-lg">T</span></div>
-          <div><h2 className="text-xs font-extrabold text-amber-300">TEACHER PORTAL</h2><p className="text-xs text-teal-400">{getUser()?.name}</p></div>
-        </div>
-        <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-          {menu.map(([id, i, l]) => (
-            <button key={id} onClick={() => nav('/teacher/' + id)} className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-sm font-medium transition ${path === id ? 'bg-amber-400 text-teal-900 font-bold' : 'text-teal-200 hover:bg-teal-800/50'}`}>
-              <span className="w-6 h-6 flex items-center justify-center rounded bg-teal-800/60 text-xs font-bold">{i}</span>{l}
-            </button>
-          ))}
-        </nav>
-        <div className="p-3 border-t border-teal-800">
-          <button onClick={() => { logout(); nav('/login') }} className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-red-300 hover:bg-red-500/10 text-sm font-medium">
-            <span className="w-6 h-6 flex items-center justify-center rounded bg-red-500/20 text-xs font-bold">X</span>Logout
-          </button>
-        </div>
-      </aside>
-      <main className="flex-1 p-6 lg:p-8 overflow-auto">{content()}</main>
-    </div>
-  )
+  return <SidebarLayout badge="T" title="TEACHER PORTAL" subtitle={getUser()?.name} menu={menu} base="/teacher" content={content} />
 }
 
 function StudentLayout() {
-  const nav = useNavigate(); const path = window.location.hash.split('/').pop() || 'dashboard'
   const menu = [['dashboard', 'D', 'Dashboard'], ['courses', 'C', 'Courses'], ['marks', 'M', 'My Marks'], ['attendance', 'A', 'Attendance'], ['timetable', 'T', 'Timetable'], ['fees', 'F', 'My Fees'], ['profile', 'P', 'Profile']]
   function content() {
+    const path = window.location.hash.split('/').pop() || 'dashboard'
     if (path === 'courses') return <StudentCourses />
     if (path === 'marks') return <StudentMarks />
     if (path === 'attendance') return <StudentAttendance />
@@ -2140,29 +2161,7 @@ function StudentLayout() {
     if (path === 'profile') return <StudentProfile />
     return <StudentDashboard />
   }
-  return (
-    <div className="min-h-screen flex bg-gray-50">
-      <aside className="w-64 bg-teal-900 text-white flex flex-col shrink-0">
-        <div className="p-5 border-b border-teal-800 flex items-center gap-3">
-          <div className="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center"><span className="text-teal-950 font-black text-lg">S</span></div>
-          <div><h2 className="text-xs font-extrabold text-amber-300">STUDENT PORTAL</h2><p className="text-xs text-teal-400">{getUser()?.name}</p></div>
-        </div>
-        <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-          {menu.map(([id, i, l]) => (
-            <button key={id} onClick={() => nav('/student/' + id)} className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-sm font-medium transition ${path === id ? 'bg-amber-400 text-teal-900 font-bold' : 'text-teal-200 hover:bg-teal-800/50'}`}>
-              <span className="w-6 h-6 flex items-center justify-center rounded bg-teal-800/60 text-xs font-bold">{i}</span>{l}
-            </button>
-          ))}
-        </nav>
-        <div className="p-3 border-t border-teal-800">
-          <button onClick={() => { logout(); nav('/login') }} className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-red-300 hover:bg-red-500/10 text-sm font-medium">
-            <span className="w-6 h-6 flex items-center justify-center rounded bg-red-500/20 text-xs font-bold">X</span>Logout
-          </button>
-        </div>
-      </aside>
-      <main className="flex-1 p-6 lg:p-8 overflow-auto">{content()}</main>
-    </div>
-  )
+  return <SidebarLayout badge="S" title="STUDENT PORTAL" subtitle={getUser()?.name} menu={menu} base="/student" content={content} />
 }
 
 /* ==================== MAIN APP ==================== */

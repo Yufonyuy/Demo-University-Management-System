@@ -14,16 +14,6 @@ body {
 
 #root { min-height: 100vh; }
 
-/* Show image sides on larger screens */
-@media (min-width: 1024px) {
-  .login-left, .signup-right { display: block !important; }
-}
-
-@media (max-width: 1023px) {
-  .login-left, .signup-right { display: none !important; }
-  .login-right, .signup-right form-side { flex: 1 !important; width: 100% !important; }
-}
-
 @layer components {
   .btn-primary {
     @apply bg-primary-700 text-white px-4 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium;
